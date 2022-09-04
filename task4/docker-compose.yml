@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  #Nginx Service
+   webserver:
+     image: nginx:alpine
+     container_name: webserver
+     restart: unless-stopped
+     ports:
+       - "80:80"
+       - "443:443"
+     environment:
+       Name: Nginx
+     deploy:
+       mode: replicated
+       replicas: 3
+     volumes:
+        - ".:/usr/share/nginx/html"
+     healthcheck:
+       test: ["CMD-SHELL", "nginxready"]
+       interval: 10s
+       timeout: 5s
+       retries: 5
+
