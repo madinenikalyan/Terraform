@@ -13,6 +13,8 @@ services:
      deploy:
        mode: replicated
        replicas: 3
+     command:
+       pwd 
      volumes:
         - ".:/usr/share/nginx/html"
      healthcheck:
