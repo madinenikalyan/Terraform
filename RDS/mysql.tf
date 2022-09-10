@@ -18,8 +18,8 @@ module "mysql" {
   rds_password         = random_password.password.result
   port                 = var.port
   db_subnet_group_name = aws_db_subnet_group.subnet_group.name
-  license_model             = "license-included"
-  identifier = var.identifier
+  license_model        = "license-included"
+  identifier           = var.identifier
   tags = {
     "Name" = "Mssql-CN-Prod"
   }
